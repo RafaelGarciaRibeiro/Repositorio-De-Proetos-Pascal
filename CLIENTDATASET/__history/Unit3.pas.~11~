@@ -1,0 +1,122 @@
+unit Unit3;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids, Datasnap.DBClient, Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.StdCtrls;
+
+type
+  TForm3 = class(TForm)
+    cdsOriginalcodigo: TIntegerField;
+    cdsOriginalNome: TStringField;
+    cdsOriginalData_nacimento: TDateField;
+    DataSource1: TDataSource;
+    cdsOriginal: TClientDataSet;
+    DBGrid1: TDBGrid;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    Button9: TButton;
+    Button10: TButton;
+    Edit1: TEdit;
+    btn_filtrarcodigo: TButton;
+    btn_filtrarnome: TButton;
+    ed_codigo: TEdit;
+    ed_nome: TEdit;
+    DBNavigator1: TDBNavigator;
+    cdsOriginalsalario: TFloatField;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form3: TForm3;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm3.Button1Click(Sender: TObject);
+begin
+   cdsOriginal.Insert;
+end;
+
+procedure TForm3.Button2Click(Sender: TObject);
+begin
+   cdsOriginal.edit;
+end;
+
+procedure TForm3.Button3Click(Sender: TObject);
+begin
+   if application.MessageBox('Deseja Excluir?','Confirmar',mb_yesno+mb_iconquestion) = mrYes then
+   cdsOriginal.Delete;
+end;
+
+procedure TForm3.Button4Click(Sender: TObject);
+begin
+  cdsOriginal.cancel;
+end;
+
+procedure TForm3.Button5Click(Sender: TObject);
+begin
+   cdsOriginal.Post;
+end;
+
+procedure TForm3.Button6Click(Sender: TObject);
+begin
+   cdsOriginal.Next;
+end;
+
+procedure TForm3.Button7Click(Sender: TObject);
+begin
+   cdsOriginal.Prior;
+end;
+
+procedure TForm3.Button8Click(Sender: TObject);
+begin
+  cdsOriginal.First;
+end;
+
+procedure TForm3.Button9Click(Sender: TObject);
+begin
+   cdsOriginal.Last;
+end;
+
+procedure TForm3.Button10Click(Sender: TObject);
+begin
+   // pede para incluir o registro
+   cdsOriginal.Append;
+   //passa in ClientDataSet1formações para o registro
+   cdsOriginal.FieldbyName('codigo').AsInteger          := 1;
+   cdsOriginal.FieldbyName('Nome').AsString             := Edit1.Text;
+   cdsOriginal.FieldByName('Data_nacimento').AsDateTime := Now;
+   cdsOriginal.FieldByName('salario').AsFloat           := 500;
+   //pede para gravar registro
+   cdsOriginal.Post;
+end;
+procedure TForm3.FormCreate(Sender: TObject);
+begin
+                   //nome do field           //função de armazernar
+   (cdsOriginal.FieldbyName ('salario') as TFloatField).DisplayFormat := '"R$ " ##0.00';
+end;
+
+end.
