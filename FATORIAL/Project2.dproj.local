@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2025/03/05 13:53:12.000.327,=C:\Users\delphi5\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2025/04/01 13:17:01.000.021,=C:\Users\delphi5\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2025/04/07 11:12:55.000.095,=C:\Users\delphi5\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2025/04/14 09:16:58.000.006,=C:\Users\delphi5\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2025/04/14 09:41:32.000.450,C:\Users\delphi5\Documents\Embarcadero\Studio\Projects\Unit3.dfm=C:\rafael\FATORIAL\Unit3.dfm</Transaction>
+    <Transaction>2025/04/14 09:41:32.000.450,C:\Users\delphi5\Documents\Embarcadero\Studio\Projects\Unit3.pas=C:\rafael\FATORIAL\Unit3.pas</Transaction>
+    <Transaction>2025/04/14 09:41:33.000.328,C:\Users\delphi5\Documents\Embarcadero\Studio\Projects\Project2.dproj=C:\rafael\FATORIAL\Project2.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

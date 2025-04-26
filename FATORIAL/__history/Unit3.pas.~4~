@@ -1,0 +1,44 @@
+unit Unit3;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm3 = class(TForm)
+    lb_fatorial: TLabel;
+    ed_fatorialnumero: TEdit;
+    Memo1: TMemo;
+    btn_calcular: TButton;
+    procedure btn_calcularClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form3: TForm3;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm3.btn_calcularClick(Sender: TObject);
+var
+  fatorial, numero : integer;
+begin
+  numero := strtoint (ed_fatorialnumero.Text);
+  fatorial := 1;
+
+  while numero > 1 do
+    begin
+       fatorial := numero * fatorial;
+       numero := numero - 1;
+    end;
+  Memo1.Lines.Add (inttostr (fatorial));
+end;
+
+end.

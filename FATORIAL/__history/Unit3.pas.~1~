@@ -1,0 +1,60 @@
+unit Unit3;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm3 = class(TForm)
+    lb_fatorial: TLabel;
+    ed_fatorialnumero: TEdit;
+    Memo1: TMemo;
+    btn_calcular: TButton;
+    procedure btn_calcularClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form3: TForm3;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm3.btn_calcularClick(Sender: TObject);
+var
+  numero, i, fatorial: Integer;
+begin
+  Memo1.Clear;
+
+  numero := StrToIntDef(ed_fatorialnumero.Text, 0);
+  i := numero;
+  fatorial := 1;
+
+  if numero < 0 then
+  begin
+    Memo1.Lines.Add('Digite um número positivo!');
+  end;
+
+  // Apresenta o cálculo no Memo
+  Memo1.Lines.Add('Cálculo do fatorial de ' + IntToStr(numero) + ':');
+
+  // Loop while para calcular o fatorial
+  while numero > 1 do
+  begin
+    Memo1.Lines.Add(IntToStr(fatorial) + ' * ' + IntToStr(numero) + ' = ' + IntToStr(fatorial * numero));
+    fatorial := fatorial * numero;
+    Dec(numero);
+  end;
+
+  // Resultado final
+  Memo1.Lines.Add('');
+  Memo1.Lines.Add('Resultado: ' + IntToStr(numero) + '! = ' + IntToStr(fatorial));
+end;
+
+end.
